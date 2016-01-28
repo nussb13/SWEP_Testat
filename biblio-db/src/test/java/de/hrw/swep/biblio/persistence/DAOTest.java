@@ -28,13 +28,13 @@ public class DAOTest {
   /**
    * Bringt die Datenbank in einen definierten Ausgangszustand
    * 
-   * @throws Exception
+   * @throws Exception gjhfhfh
    */
   @Before 
   public void setup() throws Exception {
     databaseTester = new JdbcDatabaseTester("org.hsqldb.jdbcDriver",
         "jdbc:hsqldb:file:../biblio-db/database/bibdb", "sa", "");
-    databaseTester.setSetUpOperation(new HsqlDatabaseOperation());
+//    databaseTester.setSetUpOperation(new HsqlDatabaseOperation());
     databaseTester.setDataSet(new FlatXmlDataSetBuilder().build(new File("full.xml")));
     databaseTester.onSetup();
   }
@@ -42,13 +42,13 @@ public class DAOTest {
   /**
    * Testet das Abrufen eines bestimmten Nutzers nach der Nutzer-ID
    */
-/*  @Test
+  @Test
   public void testGetUserById() {
     DAO dao = new DAO();
     BenutzerDTO b = dao.getBenutzerById(1);
     assertEquals("Adalbert Alt", b.getName());
     assertEquals("Normal", b.getStatus());
-  }*/
+  }
 
   /**
    * Testet das Abrufen eines Benutzers mit einem gegebenen Namen.
@@ -57,7 +57,7 @@ public class DAOTest {
   public void testGetBenutzerByName() {
     DAO dao = new DAO();
     Set<BenutzerDTO> b = dao.getBenutzerByName("Berta Brettschneider");
-    assertEquals(0, b.size());
+    assertEquals(1, b.size());
 
   }
 
@@ -68,7 +68,7 @@ public class DAOTest {
   public void testGetBuchByAutor() {
     DAO dao = new DAO();
     Set<BuchDTO> b = dao.getBuchByAutor("Malte Mohn");
-    assertEquals(0, b.size());
+    assertEquals(1, b.size());
   }
 
   /**
@@ -78,6 +78,6 @@ public class DAOTest {
   public void testGetBuchByTitle() {
     DAO dao = new DAO();
     Set<BuchDTO> b = dao.getBuchByTitle("Klatsch");
-    assertEquals(0, b.size());
+    assertEquals(1, b.size());
   }
 }
