@@ -9,7 +9,6 @@ public class Normal implements Benutzerstatus {
 
 	private Benutzer benutzer;
 
-	
 	public Normal(Benutzer b) {
 		this.benutzer = b;
 	}
@@ -20,7 +19,7 @@ public class Normal implements Benutzerstatus {
 	}
 
 	public void freischalten() {
-		// TODO Statusübergang
+		throw new IllegalStateTransition();
 	}
 
 }
